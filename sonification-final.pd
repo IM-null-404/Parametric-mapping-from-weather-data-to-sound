@@ -52,4 +52,4 @@
 #X connect 15 0 13 0;
 #X connect 15 0 23 0;
 #X coords 0 -1 1 1 360 300 2 100 100;
-#X restore 1435 511 pd sound-out;
+#X restore 1444 513 pd sound-out;

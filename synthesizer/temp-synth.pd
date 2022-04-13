@@ -1,4 +1,4 @@
-#N canvas -8 -8 1924 992 12;
+#N canvas -8 -8 1920 989 12;
 #X obj 1142 -44 cnv 15 215 229 empty empty empty 20 12 0 14 -237178
 -66577 0;
 #X obj 698 -45 cnv 15 440 231 empty empty empty 20 12 0 14 -237178
@@ -35,7 +35,7 @@
 #X coords 0 1 99 -1 200 140 1;
 #X restore 1150 25 graph;
 #X obj 183 531 *~;
-#X obj 317 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 533 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 426 414 t b;
 #X obj 619 246 else/display;
@@ -46,12 +46,11 @@
 #X obj 183 457 else/xselect~ 3 100;
 #X obj 182 694 else/plate.rev~;
 #X obj 241 334 else/square~;
-#X obj 708 368 else/initmess 0 5 0.7 80 0.09 102 0;
+#X obj 839 484 else/initmess 0 5 0.7 80 0.09 102 0;
 #X obj 281 422 else/vsaw~;
 #X obj 302 396 r~ temp-saw-pw;
 #X obj 267 310 r~ temp-sq-pw;
 #X obj 269 81 loadbang;
-#X obj 705 8 ../../customs/env.ui;
 #X obj 410 121 ../gui/high-pass.ui;
 #A saved 400.787 0;
 #X obj 533 551 s temp.vol;
@@ -62,7 +61,7 @@
 #X text 601 23 vol;
 #X obj 524 673 tabwrite~ temp-sig-arr;
 #X obj 542 623 metro 50;
-#X obj 1337 5 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 1337 5 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 571 584 loadbang;
 #X obj 280 -55 loadbang;
@@ -87,12 +86,12 @@
 #X obj 183 580 bp~ 300 0.496;
 #X floatatom 285 583 5 0 0 1 bp-frequency - -;
 #X obj 285 537 t f;
-#X obj 708 397 else/initmess 0 25 0.65 100 0.25 100 0;
+#X obj 839 513 else/initmess 0 25 0.65 100 0.25 100 0;
 #X obj 1101 237 sel 0 1 2 3 4;
-#X obj 708 457 else/initmess 0 55.9756 0.645 32.4 0.48 19.635 0.475
+#X obj 839 573 else/initmess 0 55.9756 0.645 32.4 0.48 19.635 0.475
 11.22 0.38 12.07 0.28 26.735 0.295 28.985 0;
-#X obj 708 425 else/initmess 0 50 0.65 260 0.25 58 0;
-#X obj 708 507 else/initmess 0 45.205 0.7 26.79 0.37 53.21 0.22 61.795
+#X obj 839 541 else/initmess 0 50 0.65 260 0.25 58 0;
+#X obj 839 623 else/initmess 0 45.205 0.7 26.79 0.37 53.21 0.22 61.795
 0;
 #X obj 183 631 clip~ -0.8 0.8;
 #X obj 183 605 lop~ 850;
@@ -106,9 +105,9 @@
 #X text 604 95 saw pw;
 #X text 602 129 hp cutoff hz;
 #X obj 577 158 hradio 15 0 0 5 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 4;
 #X obj 409 158 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X text 709 -13 amplitude envelope;
 #X obj 407 -73 cnv 15 950 32 empty empty Temperature 3 12 1 16 -179642
 -66577 0;
@@ -119,76 +118,77 @@
 #X obj 1139 331 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 1471 21 r sonify-temp;
+#X obj 707 12 ../gui/env.ui;
 #X connect 3 0 10 0;
-#X connect 3 0 50 0;
+#X connect 3 0 49 0;
 #X connect 4 0 9 0;
-#X connect 4 0 36 0;
+#X connect 4 0 35 0;
 #X connect 5 0 4 1;
-#X connect 6 0 77 0;
+#X connect 6 0 76 0;
 #X connect 7 0 6 0;
 #X connect 7 0 16 0;
-#X connect 7 0 78 0;
+#X connect 7 0 77 0;
 #X connect 8 0 21 0;
 #X connect 10 0 11 0;
 #X connect 11 0 7 0;
 #X connect 12 0 11 1;
 #X connect 14 0 20 0;
-#X connect 15 0 29 0;
+#X connect 15 0 82 0;
 #X connect 16 0 15 0;
 #X connect 18 0 12 0;
 #X connect 19 0 22 0;
-#X connect 20 0 56 0;
+#X connect 20 0 55 0;
 #X connect 21 0 14 0;
 #X connect 22 0 4 0;
 #X connect 22 1 4 0;
 #X connect 23 0 21 1;
-#X connect 24 0 29 0;
+#X connect 24 0 82 0;
 #X connect 25 0 21 2;
 #X connect 26 0 25 1;
 #X connect 27 0 23 1;
-#X connect 28 0 80 0;
-#X connect 29 1 14 1;
-#X connect 30 0 20 1;
-#X connect 34 0 31 0;
+#X connect 28 0 79 0;
+#X connect 29 0 20 1;
+#X connect 33 0 30 0;
+#X connect 36 0 35 0;
 #X connect 37 0 36 0;
-#X connect 38 0 37 0;
-#X connect 39 0 37 0;
+#X connect 38 0 36 0;
+#X connect 39 0 40 0;
 #X connect 40 0 41 0;
-#X connect 41 0 42 0;
-#X connect 42 0 49 0;
-#X connect 42 0 18 0;
-#X connect 43 0 44 0;
-#X connect 47 0 21 0;
-#X connect 49 0 73 0;
-#X connect 49 0 74 0;
-#X connect 52 0 58 0;
-#X connect 55 0 56 2;
-#X connect 56 0 65 0;
-#X connect 57 0 56 1;
-#X connect 58 0 79 0;
-#X connect 59 0 29 0;
-#X connect 60 0 24 0;
-#X connect 60 0 81 0;
-#X connect 60 1 59 0;
-#X connect 60 2 62 0;
-#X connect 60 3 61 0;
-#X connect 60 4 63 0;
-#X connect 61 0 29 0;
-#X connect 62 0 29 0;
-#X connect 63 0 29 0;
-#X connect 64 0 22 0;
-#X connect 65 0 64 0;
-#X connect 66 0 33 0;
-#X connect 67 0 32 0;
-#X connect 68 0 67 0;
-#X connect 69 0 66 0;
-#X connect 73 0 60 0;
-#X connect 74 0 47 0;
-#X connect 77 0 8 0;
-#X connect 77 0 23 0;
-#X connect 77 0 25 0;
-#X connect 78 0 52 0;
-#X connect 79 0 57 0;
-#X connect 80 0 18 0;
-#X connect 82 0 38 0;
+#X connect 41 0 48 0;
+#X connect 41 0 18 0;
+#X connect 42 0 43 0;
+#X connect 46 0 21 0;
+#X connect 48 0 72 0;
+#X connect 48 0 73 0;
+#X connect 51 0 57 0;
+#X connect 54 0 55 2;
+#X connect 55 0 64 0;
+#X connect 56 0 55 1;
+#X connect 57 0 78 0;
+#X connect 58 0 82 0;
+#X connect 59 0 24 0;
+#X connect 59 0 80 0;
+#X connect 59 1 58 0;
+#X connect 59 2 61 0;
+#X connect 59 3 60 0;
+#X connect 59 4 62 0;
+#X connect 60 0 82 0;
+#X connect 61 0 82 0;
+#X connect 62 0 82 0;
+#X connect 63 0 22 0;
+#X connect 64 0 63 0;
+#X connect 65 0 32 0;
+#X connect 66 0 31 0;
+#X connect 67 0 66 0;
+#X connect 68 0 65 0;
+#X connect 72 0 59 0;
+#X connect 73 0 46 0;
+#X connect 76 0 8 0;
+#X connect 76 0 23 0;
+#X connect 76 0 25 0;
+#X connect 77 0 51 0;
+#X connect 78 0 56 0;
+#X connect 79 0 18 0;
+#X connect 81 0 37 0;
+#X connect 82 1 14 1;
 #X coords 0 -1 1 1 960 269 2 402 -78;

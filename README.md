@@ -2,9 +2,9 @@
 <p>About:Digital artifacts of an experimental sonification project</p>
 
 <ol>
-  Software/platform: Pure data CEAMMC
+  Software/platform: 
   <li>Pure data by https://github.com/pure-data</li>
-  <li>CEAMMC by https://github.com/uliss/pure-data</li>
+  <li>Pure data CEAMMC by https://github.com/uliss/pure-data</li>
   </ol>
 
 <ol>

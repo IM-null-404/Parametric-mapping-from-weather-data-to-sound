@@ -1,9 +1,11 @@
 # Parametric-mapping-from-weather-data-to-sound
 Digital artifacts of an experimental sonification project
 
-Software/platform: Pure data CEAMMC
-source code: https://github.com/uliss/pure-data
+<ol>Software/platform: Pure data CEAMMC
+  <li>source code: https://github.com/uliss/pure-data</li>
 
-Library:
-Cyclone by https://github.com/porres/pd-cyclone
-and Else by https://github.com/porres/pd-else
+<li>Library:
+  <li>Cyclone by https://github.com/porres/pd-cyclone</li>
+  <li>Else by https://github.com/porres/pd-else</li>
+ </li>
+</ol>

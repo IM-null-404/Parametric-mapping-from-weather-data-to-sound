@@ -6,4 +6,4 @@ source code: https://github.com/uliss/pure-data
 
 Library:
 Cyclone by https://github.com/porres/pd-cyclone
-Else by https://github.com/porres/pd-else
+and Else by https://github.com/porres/pd-else

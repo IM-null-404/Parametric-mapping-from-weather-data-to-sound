@@ -22,8 +22,9 @@ Library:
       <li>Select start</li>
     </ol>
   <li>[Rain, Temp and etc.] data parameter abstraction:
-    <li> Observe and listen to the sonified output</li>
-    <li> Modify the parameters as you like</li>
-  </li>
+    <ol>
+      <li> Observe and listen to the sonified output</li>
+      <li> Modify the parameters as you like</li>
+  </ol>
 </ol>
 

@@ -17,10 +17,10 @@ Library:
   How to use:
   <li>Launch (main).pd</li>
   <li>[Data parser] abstraction:
+    <ol>
+      <li>Select one of the data parameters (temp, rain, w-dir, cloud, w-speed)</li>
+      <li>Select start</li>
     </ol>
-    <li>Select one of the data parameters (temp, rain, w-dir, cloud, w-speed)</li>
-    <li>Select start</li>
-  </li>
   <li>[Rain, Temp and etc.] data parameter abstraction:
     <li> Observe and listen to the sonified output</li>
     <li> Modify the parameters as you like</li>

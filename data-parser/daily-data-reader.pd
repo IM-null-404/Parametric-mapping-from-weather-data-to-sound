@@ -1,0 +1,254 @@
+#N canvas -3 168 1676 809 12;
+#X obj 879 -111 cnv 15 213 176 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X msg 994 -62 start-reading;
+#X obj 255 89 cnv 15 735 372 empty empty Weather-parameters 20 12 0
+14 -233344 -66577 0;
+#X obj 710 290 s rain;
+#X obj 629 299 s cloud;
+#X obj 371 375 s temp;
+#X obj 1234 -285 cnv 15 403 161 empty empty options 20 12 0 14 -233017
+-66577 0;
+#X obj 443 6 csv_file;
+#N canvas 0 0 450 300 open-file 0;
+#X obj 37 29 inlet bang;
+#X obj 37 54 openpanel;
+#X msg 37 79 read \$1;
+#X obj 37 104 outlet bin;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X restore 337 -56 pd open-file;
+#X obj 337 -88 bng 15 250 50 0 empty empty open-file 17 7 0 10 -262144
+-1 -1;
+#X obj 578 15 t a f;
+#X obj 578 41 list;
+#X floatatom 464 190 5 0 0 0 temp_max - -;
+#X msg 578 68 set \$1;
+#X msg 578 93 12190;
+#X obj 445 48 print line ends here;
+#X msg 690 -99 rewind;
+#X floatatom 530 190 5 0 0 0 temp_min - -;
+#X floatatom 597 190 5 0 0 0 humid_mean - -;
+#X floatatom 371 343 6 0 0 0 temp_mean - -;
+#X floatatom 332 220 6 0 0 0 temp_feel - -;
+#X floatatom 629 281 5 0 0 0 cloud_mean - -;
+#X floatatom 710 269 5 0 0 0 rain_vol - -;
+#X obj 332 165 packel 1 2 3 4 5 6 7 8 9 10, f 99;
+#X floatatom 770 278 5 0 0 0 wnd_speed - -;
+#X floatatom 860 393 5 0 0 0 wnd_dir - -;
+#X floatatom 914 196 7 0 0 0 atm - -;
+#X obj 553 -269 bng 15 250 50 0 empty \$0-bang empty 5 -9 0 10 -258049
+-1 -1;
+#X obj 570 -173 inlet read speed;
+#X obj 385 -165 t b;
+#X obj 905 -82 sel 0 1;
+#X obj 952 -35 pack s;
+#X msg 1256 -253 read Selangor_mean.csv;
+#X text 1255 -228 can connect this one (daily data with only 153 data
+points);
+#X msg 1255 -195 read Selangor_hourly_4PD.csv;
+#X text 1254 -172 can connect this one (hourly data with only 4291
+data points);
+#X obj 646 48 s \$0-stop-record;
+#X obj 690 -75 print rewind;
+#X obj 772 52 s \$0-stop-read;
+#X msg 906 -61 stop-reading;
+#X obj 331 240 s temp-feel;
+#X obj 858 413 s wind_dir;
+#X obj 770 303 s wind_speed;
+#X obj 455 -87 t b;
+#X text 888 -105 display message;
+#X obj 458 -64 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 536 -176 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 537 -125 f;
+#X obj 568 -127 + 1;
+#X floatatom 537 -100 5 0 0 0 - - -;
+#X obj 556 -234 hsl 128 15 0 154 0 0 empty empty data-point-position
+3 5 0 10 -262144 -1 -1 12618 1;
+#X obj 537 -76 change;
+#X msg 595 -126 1;
+#X obj 699 -19 spigot;
+#X obj 699 6 t b;
+#X obj 732 -41 >= 154;
+#X floatatom 689 -234 5 0 0 0 - - -;
+#X text 568 -269 start/stop read;
+#X obj 762 -254 r \$0-stop-read;
+#X obj 314 198 switch;
+#X obj 305 179 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 371 316 switch;
+#X obj 553 -213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 629 261 switch;
+#X obj 553 -198 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 709 247 switch;
+#X obj 617 -213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 768 258 switch;
+#X obj 617 -198 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 860 367 switch;
+#X obj 682 -213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 272 -17 loadbang;
+#X msg 272 8 0;
+#X text 569 -214 temp;
+#X text 569 -199 cloud;
+#X text 632 -214 rain;
+#X text 632 -199 w-speed;
+#X text 697 -214 w-dir;
+#X obj 762 -192 s sonify-rain;
+#X obj 762 -229 s sonify-temp;
+#X obj 762 -210 s sonify-cloud;
+#X obj 762 -147 s sonify-w-dir;
+#X obj 762 -170 s sonify-w-speed;
+#X floatatom 966 -135 5 0 0 0 - - -;
+#X symbolatom 553 -253 15 0 0 0 - - -;
+#X msg 865 -46 0;
+#X obj 1054 145 cnv 15 153 20 empty cnv_bar load-bar 2 7 1 13 -262113
+-66577 0;
+#X obj 1146 285 s cnv_bar;
+#X msg 1144 240 vis_size \$1 20;
+#X msg 1350 236 label_pos 2 7;
+#X msg 1241 238 label_font 1 13;
+#X obj 1425 320 list store;
+#X msg 1422 297 append \$1;
+#X msg 1430 267 bang;
+#X obj 1423 342 l2s;
+#X obj 1422 387 t b a;
+#X msg 1424 364 set \$1;
+#X obj 1425 664 array set \$0-arr-temp;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-arr-temp 100 float 5;
+#A 0 28.0629 29.3776 28.3995 27.2383 27.1233 27.9385 27.3237 26.8122
+27.3286 27.4513 27.0489 27.2392 27.3255 26.3543 27.5917 27.8917 27.1165
+28.0896 28.3891 27.7774 28.0336 28.3917 28.5064 28.185 28.1214 28.7791
+28.4104 28.6478 28.4817 28.8673 29.4183 29.3741 28.9355 27.7626 28.9555
+27.73 28.4268 29.0655 28.9787 29.1632 29.3279 28.6446 29.3152 29.2026
+28.8026 29.0143 28.02 28.3676 29.5236 29.6613 28.0919 25.7568 28.6282
+29.4865 29.5291 27.5577 26.6145 27.4587 28.3732 28.8733 26.7635 26.954
+27.7987 27.445 27.2574 28.49 28.7432 27.6264 27.2348 26.2663 27.5892
+26.8214 28.9257 26.6862 29.47 30.0836 30.1133 29.3882 29.7287 29.4235
+27.4075 27.8318 28.1036 29.0152 28.1383 28.7896 28.1214 27.41 26.9864
+27.2783 26.7282 25.71 26.0473 28.5592 27.2364 28.8364 28.3957 26.9578
+28.3226 28.7743;
+#X coords 0 35 99 20 200 140 1;
+#X restore 1406 65 graph;
+#X msg 1507 300 bang;
+#X obj 1322 348 print temp;
+#X msg 1293 307 get 0 1;
+#X msg 1424 420 24.845\ 28.0629\ 29.3776\ 28.3995\ 27.2383\ 27.1233\ 27.9385\ 27.3237\ 26.8122\ 27.3286\ 27.4513\ 27.0489\ 27.2392\ 27.3255\ 26.3543\ 27.5917\ 27.8917\ 27.1165\ 28.0896\ 28.3891\ 27.7774\ 28.0336\ 28.3917\ 28.5064\ 28.185\ 28.1214\ 28.7791\ 28.4104\ 28.6478\ 28.4817\ 28.8673\ 29.4183\ 29.3741\ 28.9355\ 27.7626\ 28.9555\ 27.73\ 28.4268\ 29.0655\ 28.9787\ 29.1632\ 29.3279\ 28.6446\ 29.3152\ 29.2026\ 28.8026\ 29.0143\ 28.02\ 28.3676\ 29.5236\ 29.6613\ 28.0919\ 25.7568\ 28.6282\ 29.4865\ 29.5291\ 27.5577\ 26.6145\ 27.4587\ 28.3732\ 28.8733\ 26.7635\ 26.954\ 27.7987\ 27.445\ 27.2574\ 28.49\ 28.7432\ 27.6264\ 27.2348\ 26.2663\ 27.5892\ 26.8214\ 28.9257\ 26.6862\ 29.47\ 30.0836\ 30.1133\ 29.3882\ 29.7287\ 29.4235\ 27.4075\ 27.8318\ 28.1036\ 29.0152\ 28.1383\ 28.7896\ 28.1214\ 27.41\ 26.9864\ 27.2783\ 26.7282\ 25.71\ 26.0473\ 28.5592\ 27.2364\ 28.8364\ 28.3957\ 26.9578\ 28.3226\ 28.7743\ 28.6632\ 26.915\ 26.9971\ 26.8378\ 27.5204\ 26.6987\ 28.13\ 28.0326\ 27.1843\ 27.1274\ 26.6018\ 26.39\ 27.6443\ 26.3141\ 27.1145\ 27.7373\ 28.62\ 27.5591\ 28.3421\ 27.8845\ 27.5556\ 26.8689\ 25.6667\ 25.9014\ 26.866\ 28.6919\ 26.7615\ 
+28.2114\ 28.6936\ 29.9907\ 28.773\ 28.6443\ 25.7587\ 29.3276\ 29.2194\ 30.2505\ 29.5107\ 29.3389\ 29.252\ 29.1867\ 28.2645\ 26.8289\ 27.6465\ 27.2587\ 29.3221\ 28.1065\ 26.1175\ 28.1848\ 27.1\ 28.3717\ 27.0691\ 27.9333
+;
+#X obj 436 -280 cnv 15 73 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X msg 259 -199 read ../data-file/Selangor_mean.csv;
+#X obj 663 -251 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1050 -169 s read-speed-trig;
+#X obj 537 -150 else/tempo -ms;
+#X connect 1 0 31 0;
+#X connect 7 0 10 0;
+#X connect 7 1 13 0;
+#X connect 7 2 15 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 23 0;
+#X connect 12 0 59 1;
+#X connect 13 0 14 0;
+#X connect 16 0 7 0;
+#X connect 16 0 37 0;
+#X connect 17 0 59 1;
+#X connect 18 0 59 1;
+#X connect 19 0 5 0;
+#X connect 20 0 40 0;
+#X connect 21 0 4 0;
+#X connect 22 0 3 0;
+#X connect 23 0 59 1;
+#X connect 23 1 61 1;
+#X connect 23 1 92 0;
+#X connect 23 5 63 1;
+#X connect 23 6 65 1;
+#X connect 23 7 67 1;
+#X connect 23 8 69 1;
+#X connect 23 9 59 1;
+#X connect 24 0 42 0;
+#X connect 25 0 41 0;
+#X connect 27 0 104 0;
+#X connect 28 0 107 1;
+#X connect 29 0 46 0;
+#X connect 30 0 39 0;
+#X connect 30 0 85 0;
+#X connect 30 1 1 0;
+#X connect 31 0 84 0;
+#X connect 39 0 31 0;
+#X connect 43 0 7 0;
+#X connect 43 0 45 0;
+#X connect 45 0 105 0;
+#X connect 46 0 52 0;
+#X connect 46 0 30 0;
+#X connect 46 0 107 0;
+#X connect 47 0 48 0;
+#X connect 47 0 49 0;
+#X connect 48 0 47 1;
+#X connect 48 0 55 0;
+#X connect 49 0 51 0;
+#X connect 49 0 53 0;
+#X connect 49 0 88 0;
+#X connect 50 0 56 0;
+#X connect 51 0 50 0;
+#X connect 52 0 47 1;
+#X connect 53 0 54 0;
+#X connect 54 0 36 0;
+#X connect 54 0 38 0;
+#X connect 54 0 16 0;
+#X connect 55 0 53 1;
+#X connect 58 0 27 0;
+#X connect 59 0 20 0;
+#X connect 60 0 59 0;
+#X connect 61 0 19 0;
+#X connect 62 0 61 0;
+#X connect 62 0 79 0;
+#X connect 63 0 21 0;
+#X connect 64 0 63 0;
+#X connect 64 0 80 0;
+#X connect 65 0 22 0;
+#X connect 66 0 65 0;
+#X connect 66 0 78 0;
+#X connect 67 0 24 0;
+#X connect 68 0 67 0;
+#X connect 68 0 82 0;
+#X connect 69 0 25 0;
+#X connect 70 0 69 0;
+#X connect 70 0 81 0;
+#X connect 71 0 72 0;
+#X connect 72 0 60 0;
+#X connect 85 0 70 0;
+#X connect 85 0 68 0;
+#X connect 85 0 66 0;
+#X connect 85 0 64 0;
+#X connect 85 0 62 0;
+#X connect 88 0 87 0;
+#X connect 89 0 87 0;
+#X connect 90 0 87 0;
+#X connect 91 0 94 0;
+#X connect 91 0 100 0;
+#X connect 92 0 91 0;
+#X connect 93 0 91 0;
+#X connect 94 0 96 0;
+#X connect 95 0 102 0;
+#X connect 95 1 102 0;
+#X connect 96 0 95 0;
+#X connect 99 0 91 1;
+#X connect 102 0 97 0;
+#X connect 104 0 7 0;
+#X connect 104 0 29 0;
+#X connect 105 0 106 0;
+#X connect 107 0 43 0;
+#X connect 107 0 47 0;
+#X coords 0 -1 1 1 197 96 2 545 -274;

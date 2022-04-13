@@ -1,0 +1,20 @@
+#N canvas 416 322 700 500 12;
+#X obj 108 113 cnv 15 213 235 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 118 121 hsl 128 15 0 1500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12000 1;
+#X floatatom 251 119 5 0 0 1 ms - -;
+#X obj -53 75 loadbang;
+#X obj 402 78 s read-speed;
+#X obj 115 145 daily-data-reader;
+#X obj 115 246 hourly-data-reader;
+#X obj 108 82 cnv 15 213 32 empty empty Data\\\ parser 3 12 1 16 -179642
+-66577 0;
+#X msg -52 94 340;
+#X connect 1 0 2 0;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 3 0 8 0;
+#X connect 8 0 1 0;
+#X coords 0 -1 1 1 222 275 2 104 78;

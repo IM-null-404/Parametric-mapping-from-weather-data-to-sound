@@ -1,0 +1,24 @@
+#N canvas 891 178 700 500 12;
+#X obj 39 108 hsl 128 15 50 5000 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 175 105 5 0 0 0 - - -;
+#X obj 234 174 else/morph 250;
+#X floatatom 234 198 5 0 0 0 - - -;
+#X obj 234 222 outlet;
+#X obj 370 178 f;
+#X obj 370 202 pack;
+#X obj 370 226 savestate;
+#X obj 370 250 unpack;
+#X obj 36 36 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 0 0 5 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 5 0;
+#X connect 8 0 0 0;
+#X coords 0 -1 1 1 186 32 2 32 100;

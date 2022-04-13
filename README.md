@@ -1,7 +1,8 @@
 # Parametric-mapping-from-weather-data-to-sound
 <p>About:Digital artifacts of an experimental sonification project</p>
 
-<ol>Software/platform: Pure data CEAMMC
+<ol>
+  Software/platform: Pure data CEAMMC
   <li>Pure data by https://github.com/pure-data</li>
   <li>CEAMMC by https://github.com/uliss/pure-data</li>
   </ol>
@@ -12,9 +13,11 @@ Library:
   <li>Else by https://github.com/porres/pd-else</li>
 </ol>
 
-<ol>How to use
+<ol>
+  How to use:
   <li>Launch (main).pd</li>
-  <li>[Data parser] abstraction: 
+  <li>[Data parser] abstraction:
+    </ol>
     <li>Select one of the data parameters (temp, rain, w-dir, cloud, w-speed)</li>
     <li>Select start</li>
   </li>

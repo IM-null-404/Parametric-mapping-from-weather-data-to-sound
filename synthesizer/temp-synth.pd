@@ -1,0 +1,194 @@
+#N canvas -8 -8 1924 992 12;
+#X obj 1142 -44 cnv 15 215 229 empty empty empty 20 12 0 14 -237178
+-66577 0;
+#X obj 698 -45 cnv 15 440 231 empty empty empty 20 12 0 14 -237178
+-66577 0;
+#X obj 407 -44 cnv 15 287 230 empty empty empty 20 12 0 14 -237178
+-66577 0;
+#X obj 229 166 r temp;
+#X obj 206 751 *~;
+#X obj 249 755 r temp.vol;
+#X obj 212 267 sig~;
+#X floatatom 230 232 5 0 0 0 - - -;
+#X obj 153 336 else/sine~;
+#X obj 205 786 throw~ temp-sig;
+#X floatatom 230 187 5 0 0 0 - - -;
+#X obj 230 209 expr $f1 * $f2;
+#X floatatom 556 -9 5 0 0 0 - - -;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array temp-sig-arr 100 float 5;
+#A 0 0.0409452 0.0509922 0.0612149 0.071154 0.0805523 0.0893009 0.0973078
+0.10412 0.109078 0.1119 0.112796 0.112179 0.11035 0.107434 0.103669
+0.0995331 0.0953173 0.0909586 0.0862866 0.0811697 0.0755474 0.0694366
+0.0629457 0.0562604 0.0495672 0.0431201 0.0372754 0.0323205 0.0282093
+0.0245616 0.0210449 0.0175354 0.0140348 0.0106115 0.00738933 0.0044011
+0.00151872 -0.00138652 -0.00438578 -0.00782537 -0.0122419 -0.0179634
+-0.0251031 -0.0335936 -0.0431479 -0.0532329 -0.0633164 -0.0728532 -0.0814963
+-0.0892609 -0.0960966 -0.101733 -0.105901 -0.108472 -0.109486 -0.109177
+-0.107961 -0.106144 -0.103779 -0.100885 -0.0975641 -0.0938573 -0.0896474
+-0.0848053 -0.079172 -0.0726556 -0.0653205 -0.057379 -0.0490658 -0.0406534
+-0.032522 -0.025101 -0.0186893 -0.0131434 -0.00815777 -0.00366609 0.000290542
+0.00372197 0.00659165 0.00885503 0.0106098 0.0120471 0.0133683 0.0148428
+0.016753 0.0192189 0.022402 0.0266436 0.0320589 0.0384697 0.0456395
+0.0533168 0.0611816 0.0687918 0.0760536 0.0830331 0.0893432 0.0944424
+0.0978736 0.0993104;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 1150 25 graph;
+#X obj 183 531 *~;
+#X obj 317 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 426 414 t b;
+#X obj 619 246 else/display;
+#X obj 421 -4 hsl 128 15 2 5 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1905 1;
+#X obj 221 663 r temp.rev;
+#X obj 183 556 hip~ 400;
+#X obj 183 457 else/xselect~ 3 100;
+#X obj 182 694 else/plate.rev~;
+#X obj 241 334 else/square~;
+#X obj 708 368 else/initmess 0 5 0.7 80 0.09 102 0;
+#X obj 281 422 else/vsaw~;
+#X obj 302 396 r~ temp-saw-pw;
+#X obj 267 310 r~ temp-sq-pw;
+#X obj 269 81 loadbang;
+#X obj 705 8 ../../customs/env.ui;
+#X obj 410 121 ../gui/high-pass.ui;
+#A saved 400.787 0;
+#X obj 533 551 s temp.vol;
+#X obj 36 213 s~ temp-sq-pw;
+#X obj 17 127 s~ temp-saw-pw;
+#X obj 410 21 ../gui/vol.ui;
+#A saved 0.968504 0;
+#X text 601 23 vol;
+#X obj 524 673 tabwrite~ temp-sig-arr;
+#X obj 542 623 metro 50;
+#X obj 1337 5 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 571 584 loadbang;
+#X obj 280 -55 loadbang;
+#X obj 280 -30 t b;
+#X obj 278 4 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 937 34 ../gui/plate.rev.ui;
+#A saved 47.2441 0.425197 0.535433 0.440945 0.637795;
+#X obj 1048 383 s temp.rev;
+#X text 939 15 reverb;
+#X text 458 158 sine-square-saw;
+#X obj 383 257 + 1;
+#X text 656 158 adsr;
+#X msg 280 24 0;
+#X floatatom 420 -34 5 0 0 0 - - -;
+#X text 461 -35 celsius;
+#X floatatom 555 -34 5 0 0 0 - - -;
+#X text 602 -8 multiplier;
+#X text 593 -35 hz;
+#X obj 323 494 ../gui/vol.ui;
+#A saved 0.551181 0;
+#X obj 183 580 bp~ 300 0.496;
+#X floatatom 285 583 5 0 0 1 bp-frequency - -;
+#X obj 285 537 t f;
+#X obj 708 397 else/initmess 0 25 0.65 100 0.25 100 0;
+#X obj 1101 237 sel 0 1 2 3 4;
+#X obj 708 457 else/initmess 0 55.9756 0.645 32.4 0.48 19.635 0.475
+11.22 0.38 12.07 0.28 26.735 0.295 28.985 0;
+#X obj 708 425 else/initmess 0 50 0.65 260 0.25 58 0;
+#X obj 708 507 else/initmess 0 45.205 0.7 26.79 0.37 53.21 0.22 61.795
+0;
+#X obj 183 631 clip~ -0.8 0.8;
+#X obj 183 605 lop~ 850;
+#X obj 17 106 else/float2sig~ 100;
+#X obj 36 190 else/float2sig~ 100;
+#X obj 410 53 ../gui/float.ui;
+#A saved 0.519685 0;
+#X obj 410 87 ../gui/float.ui;
+#A saved 0.952756 0;
+#X text 599 58 square pw;
+#X text 604 95 saw pw;
+#X text 602 129 hp cutoff hz;
+#X obj 577 158 hradio 15 0 0 5 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 409 158 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X text 709 -13 amplitude envelope;
+#X obj 407 -73 cnv 15 950 32 empty empty Temperature 3 12 1 16 -179642
+-66577 0;
+#X obj 210 292 mtof~;
+#X obj 296 251 mtof;
+#X obj 284 559 expr $f1 *0.67;
+#X msg 269 102 2.45;
+#X obj 1139 331 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1471 21 r sonify-temp;
+#X connect 3 0 10 0;
+#X connect 3 0 50 0;
+#X connect 4 0 9 0;
+#X connect 4 0 36 0;
+#X connect 5 0 4 1;
+#X connect 6 0 77 0;
+#X connect 7 0 6 0;
+#X connect 7 0 16 0;
+#X connect 7 0 78 0;
+#X connect 8 0 21 0;
+#X connect 10 0 11 0;
+#X connect 11 0 7 0;
+#X connect 12 0 11 1;
+#X connect 14 0 20 0;
+#X connect 15 0 29 0;
+#X connect 16 0 15 0;
+#X connect 18 0 12 0;
+#X connect 19 0 22 0;
+#X connect 20 0 56 0;
+#X connect 21 0 14 0;
+#X connect 22 0 4 0;
+#X connect 22 1 4 0;
+#X connect 23 0 21 1;
+#X connect 24 0 29 0;
+#X connect 25 0 21 2;
+#X connect 26 0 25 1;
+#X connect 27 0 23 1;
+#X connect 28 0 80 0;
+#X connect 29 1 14 1;
+#X connect 30 0 20 1;
+#X connect 34 0 31 0;
+#X connect 37 0 36 0;
+#X connect 38 0 37 0;
+#X connect 39 0 37 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
+#X connect 42 0 49 0;
+#X connect 42 0 18 0;
+#X connect 43 0 44 0;
+#X connect 47 0 21 0;
+#X connect 49 0 73 0;
+#X connect 49 0 74 0;
+#X connect 52 0 58 0;
+#X connect 55 0 56 2;
+#X connect 56 0 65 0;
+#X connect 57 0 56 1;
+#X connect 58 0 79 0;
+#X connect 59 0 29 0;
+#X connect 60 0 24 0;
+#X connect 60 0 81 0;
+#X connect 60 1 59 0;
+#X connect 60 2 62 0;
+#X connect 60 3 61 0;
+#X connect 60 4 63 0;
+#X connect 61 0 29 0;
+#X connect 62 0 29 0;
+#X connect 63 0 29 0;
+#X connect 64 0 22 0;
+#X connect 65 0 64 0;
+#X connect 66 0 33 0;
+#X connect 67 0 32 0;
+#X connect 68 0 67 0;
+#X connect 69 0 66 0;
+#X connect 73 0 60 0;
+#X connect 74 0 47 0;
+#X connect 77 0 8 0;
+#X connect 77 0 23 0;
+#X connect 77 0 25 0;
+#X connect 78 0 52 0;
+#X connect 79 0 57 0;
+#X connect 80 0 18 0;
+#X connect 82 0 38 0;
+#X coords 0 -1 1 1 960 269 2 402 -78;

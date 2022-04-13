@@ -1,5 +1,5 @@
 # Parametric-mapping-from-weather-data-to-sound
-<p>About:Digital artifacts of an experimental sonification project</p>
+<p>About: Digital artifacts of an experimental sonification project</p>
 
 <ol>
   Software/platform: 
@@ -15,6 +15,7 @@ Library:
 
 <ol>
   How to use:
+  <li>Download the source code</li>
   <li>Launch (main).pd</li>
   <li>[Data parser] abstraction:
     <ol>

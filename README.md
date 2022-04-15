@@ -2,19 +2,19 @@
 <p>About: Digital artifacts of an experimental sonification project</p>
 
 <ol>
-  Software/platform: 
+  Install software/platform: 
   <li>Pure data by https://github.com/pure-data</li>
   <li>Pure data CEAMMC by https://github.com/uliss/pure-data</li>
   </ol>
 
 <ol>
-Library:
+Install libraries:
   <li>Cyclone by https://github.com/porres/pd-cyclone</li>
   <li>Else by https://github.com/porres/pd-else</li>
 </ol>
 
 <ol>
-  How to use:
+  How to use the patch:
   <li>Download the source code</li>
   <li>Launch (main).pd</li>
   <li>[Data parser] abstraction:
